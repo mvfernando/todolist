@@ -11,6 +11,7 @@ class two_page extends StatelessWidget {
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
+      backgroundColor: Colors.white70,
       body: Center(
         child: ElevatedButton(
             onPressed: () {
