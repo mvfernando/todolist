@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/one_page.dart';
 import 'package:todolist/todo_list_page.dart';
+import 'package:todolist/two_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const one_page(),
+      //home: const one_page(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const one_page(),
+        '/twopage': (_) => const two_page()
+      },
     );
   }
 }
