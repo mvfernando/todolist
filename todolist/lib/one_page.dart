@@ -16,7 +16,7 @@ class one_page extends StatelessWidget {
               .pushNamed('/twopage', arguments: '123').then (
                 (value) => print(value));
             },
-            child: Text('Ir para segunda page'),
+            child: Text('Ir para segunda page!'),
         ),
       ),
     );
