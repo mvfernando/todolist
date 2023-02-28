@@ -16,7 +16,10 @@ class two_page extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pop('Retorno');
+              if (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop('Retorno');
+              }
+              
             },
             child: Text('Ir para page anterior $args'),
         ),
