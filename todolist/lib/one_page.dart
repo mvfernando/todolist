@@ -12,7 +12,9 @@ class one_page extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/twopage', arguments: '123');
+              Navigator.of(context)
+              .pushReplacementNamed('/twopage', arguments: '123').then (
+                (value) => print(value));
             },
             child: Text('Ir para segunda page'),
         ),
