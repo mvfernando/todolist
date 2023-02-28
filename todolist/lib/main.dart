@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: const one_page(),
+      //segunda forma de definir routas
       initialRoute: '/',
       routes: {
         '/': (context) => const one_page(),
