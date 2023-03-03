@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todolist/custum_component.dart';
+import 'package:todolist/gerencia_estado.dart';
 import 'package:todolist/one_page.dart';
 import 'package:todolist/todo_list_page.dart';
 import 'package:todolist/two_page.dart';
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
       //segunda forma de definir routas
       initialRoute: '/',
       routes: {
-        '/': (context) => const one_page(),
+        '/': (context) => const Gerencia_estado(),
+        '/custumComponent_page': (context) => const CustumComponents(),
+        '/one_page': (context) => const one_page(),
         '/twopage': (_) => const two_page()
       },
     );
