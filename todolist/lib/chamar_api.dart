@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 //import 'package:http/http.dart';
@@ -8,21 +9,27 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:todolist/widgets/custum_button_widget.dart';
 
-class Gerencia_estado extends StatefulWidget {
-  const Gerencia_estado({super.key});
+class chamar_api extends StatefulWidget {
+  const chamar_api({super.key});
 
   @override
-  State<Gerencia_estado> createState() => _Gerencia_estado();
+  State<chamar_api> createState() => _chamar_api();
 }
 
-class _Gerencia_estado extends State<Gerencia_estado> {
+class _chamar_api extends State<chamar_api> {
 
   ValueNotifier <int> valorAleatorio = ValueNotifier <int> (0);
 
-  random() async {
-    for (int i = 0; i < 10; i++) {
-      await Future.delayed(Duration(seconds: 1));
-      valorAleatorio.value = Random().nextInt(1000);
+  CallAPI() async {
+    var client = http.Client();
+        try {
+          var response = await client.get(
+              Uri.parse('https://jsonplaceholder.typicode.com/posts'),
+          );
+          var decodedResponse = jsonDecode(response.body);
+          print(decodedResponse);
+        } finally {
+          client.close();
     }
   }
 
@@ -45,7 +52,7 @@ class _Gerencia_estado extends State<Gerencia_estado> {
             CustumButtonWidget(
                titleSize: 18,
                disable: false,
-               onPressed:() => random(),
+               onPressed:() => CallAPI(),
                title: 'START',
             )
           ],
