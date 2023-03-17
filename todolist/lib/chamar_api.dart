@@ -47,13 +47,15 @@ class _chamar_api extends State<chamar_api> {
           children: [
             AnimatedBuilder(
               animation: Listenable.merge([posts, inLoader]),
-              builder: (_, __) => ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: posts.value.length,
-                itemBuilder: (_, idx ) => ListTile(
-                  title: Text(posts.value[idx].title),
-                ),
+              builder: (_, __) => inLoader.value 
+                ? CircularProgressIndicator()
+                : ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: posts.value.length,
+                    itemBuilder: (_, idx ) => ListTile(
+                      title: Text(posts.value[idx].title),
+                  ),
               ),
             ),
             SizedBox(height: 18),
